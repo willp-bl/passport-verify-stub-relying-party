@@ -9,7 +9,8 @@ services:
         - DATABASE_CONNECTION_STRING=postgresql://postgres:@test-db:5432/stub_rp_test
         - VERIFY_SERVICE_PROVIDER_HOST=http://vsp:50400
     volumes:
-        - .:/usr/src/app/:rw
+        - .:/usr/src/app:ro
+        - ./build:/usr/src/app/build:rw
         - node_modules:/usr/src/app/node_modules
   test-db:
     image: postgres

@@ -48,8 +48,7 @@ cfBindWithDatabase() {
 ./docker-build.sh
 
 cfLogin
-cfBindWithDatabase
-cfSetDatabaseConnectionString
-
 cf push -f dev-manifest.yml
 
+cfBindWithDatabase
+cfSetDatabaseConnectionString
