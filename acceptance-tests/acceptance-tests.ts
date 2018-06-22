@@ -86,8 +86,10 @@ describe('', function () {
         let testPort: number
 
         before(done => {
-          server = entityId ? createApp(VERIFY_SERVICE_PROVIDER_HOST, db, entityId).listen(3200, done) : createApp(VERIFY_SERVICE_PROVIDER_HOST, db).listen(3200, done)
-          testPort = server.address().port
+          if (VERIFY_SERVICE_PROVIDER_HOST) {
+            server = entityId ? createApp(VERIFY_SERVICE_PROVIDER_HOST, db, entityId).listen(3200, done) : createApp(VERIFY_SERVICE_PROVIDER_HOST, db).listen(3200, done)
+            testPort = server.address().port
+          }
         })
 
         after(done => {
